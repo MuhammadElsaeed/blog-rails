@@ -1,0 +1,13 @@
+<h2>Posts</h2>
+
+<% @posts.each do |post|%>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <%= link_to post.title,  post_path(post),:class => "card-title" %>
+    <p class="card-text"><%=post.updated_at%></p>
+    <%= link_to "Edit", edit_post_path(post),:class => "btn btn-primary" %>
+    <%= link_to "Delete", post,method: "delete",:class => "btn btn-danger" %>
+  </div>
+</div>
+<hr>
+<% end %>

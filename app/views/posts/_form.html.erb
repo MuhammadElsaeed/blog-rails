@@ -1,0 +1,25 @@
+<%= form_for @post, class:"form-group col-6" do |form| %>
+<p>
+  <%= label_tag(:title,"Title") %><br>
+  <%= text_field_tag :title,@post.title, class:"form-control" %>
+</p>
+<% unless @post.errors[:title].empty? %>
+<div class="alert alert-danger" role="alert">
+  <%=@post.errors[:title][0] %>
+</div>
+<%end%>
+
+<p>
+  <%= label_tag(:content,"Content") %><br>
+  <%= text_area_tag :content,@post.title, class:"form-control" %>
+</p>
+<% unless @post.errors[:content].empty? %>
+<div class="alert alert-danger" role="alert">
+  <%=@post.errors[:content][0] %>
+</div>
+<%end%>
+<p>
+  <%= csrf_meta_tag %>
+  <%= submit_tag(btn_text,class:"btn btn-#{btn_class}") %>
+</p>
+<% end %>
